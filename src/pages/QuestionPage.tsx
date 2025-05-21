@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
 import Header from "../components/Header";
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
 import { QuestionData } from "../stores/Question/QuestionData";
 
 const Wrapper = styled.div`
@@ -62,7 +62,11 @@ export default function QuestionPage(): React.ReactElement {
       setQuestionNo(questionNo + 1);
       //마지막 문제일 경우
     } else {
-      navigate("/result");
+      const mbti = "ENTJ";
+      navigate({
+        pathname:'/result',
+        search: `?${createSearchParams({mbti: mbti})}`
+      });
     }
   };
 
