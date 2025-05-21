@@ -63,6 +63,7 @@ export default function MainPage(): React.ReactElement {
             테스트 시작하기
           </Button>
         </ContentsWrapper>
+        <div className="adfit"/>
       </Wrapper>
     </>
   );
