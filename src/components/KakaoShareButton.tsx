@@ -14,10 +14,9 @@ export default function KakaoShareButton(props: Props) {
     if (!Kakao.isInitialized) {
       Kakao.init("82b8cd77fa835d4795aa00c4099cdb3e");
     }
-  },[]);
+  }, []);
   const shareKakao = () => {
-    Kakao.Share.createDefaultButton({
-      container: "#kakaotalk-share-btn",
+    Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
         title: "😺 예비집사 판별기 결과😺",
