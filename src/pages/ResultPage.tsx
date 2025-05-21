@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Image } from "react-bootstrap";
+import { Image, Button } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
-import { ResultData } from "../stores/Result/ResultData";
 import Header from "../components/Header";
+import KakaoShareButton from "../components/KakaoShareButton";
 import { IResult } from "../stores/Result/types";
+import { ResultData } from "../stores/Result/ResultData";
 
 const Wrapper = styled.div`
   display: flex;
@@ -44,7 +45,16 @@ const BestDesc = styled.div`
 export default function ResultPage(): React.ReactElement {
   const [searchParams] = useSearchParams();
   const mbti = searchParams.get("mbti"); // 예비집사의 MBTI
-  const TestResult = ResultData.find((cat: IResult) => cat.best === mbti); //잘 맞는 고양이
+  const TestResult: IResult = ResultData.find(
+    (cat: IResult) => cat.best === mbti
+  ) ?? {
+    id: 0,
+    name: "",
+    best: "",
+    mbti: "",
+    desc: "",
+    image: "",
+  }; //잘 맞는 고양이
   const friendCat = ResultData.find(
     (friend) => friend.best === TestResult?.mbti
   ); //고양이와 잘맞는 고양이
@@ -73,6 +83,19 @@ export default function ResultPage(): React.ReactElement {
           <BestDesc>
             나의 고양이와 잘맞는 형제묘로는 {friendCat?.name} 추천드려요.{" "}
           </BestDesc>
+          <div style={{ marginBottom: "30px" }}>
+            <Button
+              variant="outline-danger"
+              style={{
+                marginTop: "20px",
+                marginRight: "20px",
+                fontSize: "25px",
+              }}
+            >
+              테스트 다시하기
+            </Button>
+            <KakaoShareButton data={TestResult} />
+          </div>
         </ContentsWrapper>
       </Wrapper>
     </>
