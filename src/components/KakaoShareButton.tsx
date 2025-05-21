@@ -11,8 +11,10 @@ export default function KakaoShareButton(props: Props) {
   const url = "https://catmbtimb.netlify.app/";
   const resultUrl = window.location.href;
   useEffect(() => {
-    Kakao.init("82b8cd77fa835d4795aa00c4099cdb3e");
-  });
+    if (!Kakao.isInitialized) {
+      Kakao.init("82b8cd77fa835d4795aa00c4099cdb3e");
+    }
+  },[]);
   const shareKakao = () => {
     Kakao.Share.createDefaultButton({
       container: "#kakaotalk-share-btn",

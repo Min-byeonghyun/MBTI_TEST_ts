@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Image, Button } from "react-bootstrap";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Header from "../components/Header";
 import KakaoShareButton from "../components/KakaoShareButton";
 import { IResult } from "../stores/Result/types";
@@ -43,6 +43,7 @@ const BestDesc = styled.div`
   color: #ffa07a;
 `;
 export default function ResultPage(): React.ReactElement {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const mbti = searchParams.get("mbti"); // 예비집사의 MBTI
   const TestResult: IResult = ResultData.find(
@@ -85,6 +86,7 @@ export default function ResultPage(): React.ReactElement {
           </BestDesc>
           <div style={{ marginBottom: "30px" }}>
             <Button
+              onClick={() => navigate("/")}
               variant="outline-danger"
               style={{
                 marginTop: "20px",
