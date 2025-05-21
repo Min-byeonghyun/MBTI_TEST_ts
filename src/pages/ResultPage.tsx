@@ -44,10 +44,10 @@ const BestDesc = styled.div`
 export default function ResultPage(): React.ReactElement {
   const [searchParams] = useSearchParams();
   const mbti = searchParams.get("mbti"); // 예비집사의 MBTI
-  const TestResult = ResultData.find((cat: IResult) => cat.best === mbti);
+  const TestResult = ResultData.find((cat: IResult) => cat.best === mbti); //잘 맞는 고양이
   const friendCat = ResultData.find(
     (friend) => friend.best === TestResult?.mbti
-  );
+  ); //고양이와 잘맞는 고양이
 
   return (
     <>
