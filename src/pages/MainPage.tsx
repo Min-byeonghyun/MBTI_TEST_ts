@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Button, Image } from "react-bootstrap";
 import CatImg from "../assets/cat.jpg";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,14 +12,7 @@ const Wrapper = styled.div`
   background-color: #fffacd;
   font-family: "Jalnan";
 `;
-const Header = styled.div`
-  background-color: #ffa07a;
-  font-size: 40px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  font-family: "Jalnan";
-`;
+
 const ContentsWrapper = styled.div`
   align-items: center;
   display: flex;
@@ -48,7 +42,7 @@ export default function MainPage(): React.ReactElement {
   return (
     <>
       <Wrapper>
-        <Header>😺 예비집사 판별기 😺</Header>
+        <Header type="title" questionNo={0}/>
         <ContentsWrapper>
           <Title>나에게 맞는 주인님은?!</Title>
           <LogoImage>
