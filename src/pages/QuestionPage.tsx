@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
 import Header from "../components/Header";
@@ -47,10 +47,6 @@ export default function QuestionPage(): React.ReactElement {
     { id: "JP", score: 0 },
   ]);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log("total", totalScore[0].score);
-  }, [totalScore[0].score]);
 
   const handleClickAnswer = (ans: number, type: string) => {
     const newScore = totalScore.map((s) =>
