@@ -53,14 +53,16 @@ export default function QuestionPage(): React.ReactElement {
   }, [totalScore[0].score]);
 
   const handleClickAnswer = (ans: number, type: string) => {
-    const newScore = totalScore.map((s)=> s.id === type ? {id : s.id, score: s.score + ans} : s);
+    const newScore = totalScore.map((s) =>
+      s.id === type ? { id: s.id, score: s.score + ans } : s
+    );
     setTotalScore(newScore);
     // 마지막 문제가 아닐경우
-    if(QuestionData.length !== questionNo +1) {
+    if (QuestionData.length !== questionNo + 1) {
       setQuestionNo(questionNo + 1);
       //마지막 문제일 경우
     } else {
-      navigate('/result')
+      navigate("/result");
     }
   };
 
