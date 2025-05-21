@@ -62,10 +62,15 @@ export default function QuestionPage(): React.ReactElement {
       setQuestionNo(questionNo + 1);
       //마지막 문제일 경우
     } else {
-      const mbti = "ENTJ";
+      const mbti = newScore.reduce(
+        (acc, cur) =>
+          acc +
+          (cur.score >= 2 ? cur.id.substring(0, 1) : cur.id.substring(1, 2)),
+        ""
+      );
       navigate({
-        pathname:'/result',
-        search: `?${createSearchParams({mbti: mbti})}`
+        pathname: "/result",
+        search: `?${createSearchParams({ mbti: mbti })}`,
       });
     }
   };

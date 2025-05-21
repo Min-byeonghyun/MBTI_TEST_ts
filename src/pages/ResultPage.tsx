@@ -4,6 +4,7 @@ import { Button, Image } from "react-bootstrap";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { ResultData } from "../stores/Result/ResultData";
 import Header from "../components/Header";
+import { IResult } from "../stores/Result/types";
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ const ContentsWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   margin-top: 20px;
-  padding : 20px;
+  padding: 20px 60px 20px 60px;
 `;
 const Title = styled.div`
   margin-top: 20px;
@@ -33,11 +34,21 @@ const ResultImage = styled.div`
 `;
 const Desc = styled.div`
   font-size: 30px;
+  margin-top: 50px;
 `;
-
+const BestDesc = styled.div`
+  font-size: 25px;
+  margin-top: 40px;
+  color: #ffa07a;
+`;
 export default function ResultPage(): React.ReactElement {
   const [searchParams] = useSearchParams();
-  const mbti = searchParams.get('mbti');
+  const mbti = searchParams.get("mbti"); // 예비집사의 MBTI
+  const TestResult = ResultData.find((cat: IResult) => cat.best === mbti);
+  const friendCat = ResultData.find(
+    (friend) => friend.best === TestResult?.mbti
+  );
+
   return (
     <>
       <Wrapper>
@@ -49,10 +60,19 @@ export default function ResultPage(): React.ReactElement {
               className="rounded-circle"
               width={350}
               height={350}
-              src={ResultData[0].image}
+              src={TestResult?.image}
             />
-            <Desc>예비집사님과 철떡궁합인 고양이는 {mbti}형 고양이 입니다.</Desc>
           </ResultImage>
+          <Desc>
+            {TestResult?.best}형 예비집사님과 찰떡궁합인 고양이는{" "}
+            {TestResult?.mbti}형 고양이 {TestResult?.name}입니다.
+          </Desc>
+          <Desc>
+            {TestResult?.name} 고양이는 {TestResult?.desc}
+          </Desc>
+          <BestDesc>
+            나의 고양이와 잘맞는 형제묘로는 {friendCat?.name} 추천드려요.{" "}
+          </BestDesc>
         </ContentsWrapper>
       </Wrapper>
     </>
