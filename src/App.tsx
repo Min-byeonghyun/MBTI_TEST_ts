@@ -1,4 +1,5 @@
 import React from "react";
+import './App.css';
 import MainPage from "./pages/MainPage";
 import QuestionPage from "./pages/QuestionPage";
 import ResultPage from "./pages/ResultPage";
