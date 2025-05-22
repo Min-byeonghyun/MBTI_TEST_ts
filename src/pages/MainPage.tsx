@@ -64,7 +64,7 @@ export default function MainPage(): React.ReactElement {
             테스트 시작하기
           </Button>
         </ContentsWrapper>
-        <div className="adfit" style={{ marginBottom: 30 }} />
+        <div className="adfit" style={{ marginTop: 30 }} />
       </Wrapper>
     </>
   );
