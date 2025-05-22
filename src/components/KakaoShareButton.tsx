@@ -48,7 +48,7 @@ export default function KakaoShareButton(props: Props) {
       <Button
         onClick={shareKakao}
         variant="outline-warning"
-        style={{ marginTop: "20px", fontSize: "25px", marginBottom: "40px"}}
+        style={{ marginTop: "20px", fontSize: "25px"}}
       >
         공유하기
       </Button>
