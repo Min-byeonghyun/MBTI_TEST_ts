@@ -19,6 +19,7 @@ const ContentsWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   margin-top: 20px;
+  margin-bottom : 30px;
 `;
 const Title = styled.div`
   margin-top: 20px;
