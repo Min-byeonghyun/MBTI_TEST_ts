@@ -42,7 +42,7 @@ export default function MainPage(): React.ReactElement {
   return (
     <>
       <Wrapper>
-        <Header type="title" questionNo={0}/>
+        <Header type="title" questionNo={0} />
         <ContentsWrapper>
           <Title>나에게 맞는 주인님은?!</Title>
           <LogoImage>
@@ -63,7 +63,7 @@ export default function MainPage(): React.ReactElement {
             테스트 시작하기
           </Button>
         </ContentsWrapper>
-        <div className="adfit"/>
+        <div className="adfit" style={{ marginBottom: 30 }} />
       </Wrapper>
     </>
   );
