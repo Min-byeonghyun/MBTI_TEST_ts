@@ -36,8 +36,8 @@ export default function KakaoShareButton(props: Props) {
         {
           title: "나도 테스트하러 가기",
           link: {
-            mobileWebUrl: resultUrl,
-            webUrl: resultUrl,
+            mobileWebUrl: url,
+            webUrl: url,
           },
         },
       ],
